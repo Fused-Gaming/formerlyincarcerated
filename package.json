@@ -11,6 +11,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@h4shed/mcp-cli": "^1.0.11",
+    "@h4shed/mcp-core": "^1.0.11",
     "@h4shed/skill-syncpulse": "^0.2.0",
     "lucide-react": "0.408.0",
     "next": "15.2.6",
