@@ -1,7 +1,8 @@
 {
   "name": "bitcoin-land-bond",
   "version": "1.0.0",
-  "description": "Criminal Asset Recovery Initiative - Reentry Housing",
+  "description": "Bitcoin Land Bond - Criminal Asset Recovery Initiative for Reentry Housing",
+  "homepage": "https://formerlyincarcerated.org",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

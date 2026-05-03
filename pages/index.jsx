@@ -26,10 +26,10 @@ export default function BitcoinLandBond() {
             Bitcoin Land Bond
           </div>
           <nav className="hidden md:flex gap-8 text-sm">
-            <a href="#" className="hover:text-amber-400 transition-colors">Impact</a>
-            <a href="#" className="hover:text-amber-400 transition-colors">Model</a>
-            <a href="#" className="hover:text-amber-400 transition-colors">Partners</a>
-            <a href="#" className="hover:text-amber-400 transition-colors">Docs</a>
+            <a href="https://formerlyincarcerated.org/impact" className="hover:text-amber-400 transition-colors">Impact</a>
+            <a href="https://formerlyincarcerated.org/model" className="hover:text-amber-400 transition-colors">Model</a>
+            <a href="https://formerlyincarcerated.org/partners" className="hover:text-amber-400 transition-colors">Partners</a>
+            <a href="https://formerlyincarcerated.org/docs" className="hover:text-amber-400 transition-colors">Docs</a>
           </nav>
         </div>
       </header>
@@ -49,13 +49,13 @@ export default function BitcoinLandBond() {
             </div>
 
             <div className="flex gap-4 flex-col sm:flex-row animate-fade-up" style={{animationDelay: '0.1s'}}>
-              <button className="px-8 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold rounded-lg hover:shadow-lg hover:shadow-amber-500/50 transition-all transform hover:scale-105">
+              <a href="https://formerlyincarcerated.org/whitepaper" className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold rounded-lg hover:shadow-lg hover:shadow-amber-500/50 transition-all transform hover:scale-105">
                 Read White Paper
                 <ArrowRight className="inline ml-2" size={18} />
-              </button>
-              <button className="px-8 py-4 border-2 border-slate-600 text-white font-bold rounded-lg hover:border-amber-400 hover:text-amber-400 transition-all">
+              </a>
+              <a href="https://formerlyincarcerated.org/pilot-cities" className="inline-flex items-center px-8 py-4 border-2 border-slate-600 text-white font-bold rounded-lg hover:border-amber-400 hover:text-amber-400 transition-all">
                 View Pilot Cities
-              </button>
+              </a>
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-slate-800">
@@ -270,12 +270,12 @@ export default function BitcoinLandBond() {
             The Bitcoin Land Bond is now accepting applications from housing developers, nonprofit partners, and city governments for pilot phase participation.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <button className="px-8 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold rounded-lg hover:shadow-lg hover:shadow-amber-500/50 transition-all">
+            <a href="https://formerlyincarcerated.org/partner" className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold rounded-lg hover:shadow-lg hover:shadow-amber-500/50 transition-all">
               Partner With Us
-            </button>
-            <button className="px-8 py-4 border-2 border-emerald-500 text-emerald-400 font-bold rounded-lg hover:bg-emerald-500/10 transition-all">
+            </a>
+            <a href="https://formerlyincarcerated.org/learn" className="inline-flex items-center px-8 py-4 border-2 border-emerald-500 text-emerald-400 font-bold rounded-lg hover:bg-emerald-500/10 transition-all">
               Learn More
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -291,25 +291,25 @@ export default function BitcoinLandBond() {
             <div>
               <p className="text-sm font-semibold text-slate-300 mb-3">Organization</p>
               <ul className="space-y-1 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-slate-300">About</a></li>
-                <li><a href="#" className="hover:text-slate-300">Board</a></li>
-                <li><a href="#" className="hover:text-slate-300">Impact</a></li>
+                <li><a href="https://formerlyincarcerated.org/about" className="hover:text-slate-300">About</a></li>
+                <li><a href="https://formerlyincarcerated.org/board" className="hover:text-slate-300">Board</a></li>
+                <li><a href="https://formerlyincarcerated.org/impact" className="hover:text-slate-300">Impact</a></li>
               </ul>
             </div>
             <div>
               <p className="text-sm font-semibold text-slate-300 mb-3">Resources</p>
               <ul className="space-y-1 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-slate-300">White Paper</a></li>
-                <li><a href="#" className="hover:text-slate-300">Pilot Details</a></li>
-                <li><a href="#" className="hover:text-slate-300">News</a></li>
+                <li><a href="https://formerlyincarcerated.org/whitepaper" className="hover:text-slate-300">White Paper</a></li>
+                <li><a href="https://formerlyincarcerated.org/pilot-details" className="hover:text-slate-300">Pilot Details</a></li>
+                <li><a href="https://formerlyincarcerated.org/news" className="hover:text-slate-300">News</a></li>
               </ul>
             </div>
             <div>
               <p className="text-sm font-semibold text-slate-300 mb-3">Contact</p>
               <ul className="space-y-1 text-sm text-slate-400">
-                <li><a href="#" className="hover:text-slate-300">hello@btclandbond.org</a></li>
-                <li><a href="#" className="hover:text-slate-300">Twitter</a></li>
-                <li><a href="#" className="hover:text-slate-300">LinkedIn</a></li>
+                <li><a href="mailto:hello@formerlyincarcerated.org" className="hover:text-slate-300">hello@formerlyincarcerated.org</a></li>
+                <li><a href="https://twitter.com/btclandbond" target="_blank" rel="noopener noreferrer" className="hover:text-slate-300">Twitter</a></li>
+                <li><a href="https://linkedin.com/company/bitcoin-land-bond" target="_blank" rel="noopener noreferrer" className="hover:text-slate-300">LinkedIn</a></li>
               </ul>
             </div>
           </div>
