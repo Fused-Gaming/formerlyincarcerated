@@ -1,11 +1,12 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import { defaultOGTags } from '../lib/og-tags';
 
 export default function Document() {
   const domain = 'formerlyincarcerated.org';
   const canonicalUrl = `https://${domain}`;
-  const title = 'Bitcoin Land Bond - Criminal Asset Recovery Initiative';
-  const description = 'The Bitcoin Land Bond deploys $15B in seized cryptocurrency to fund permanent deed-restricted housing for 600,000+ formerly incarcerated people annually.';
-  const image = `${canonicalUrl}/og-image.png`;
+  const title = defaultOGTags.title;
+  const description = defaultOGTags.description;
+  const image = `${canonicalUrl}${defaultOGTags.image}`;
 
   return (
     <Html lang="en">
@@ -17,15 +18,18 @@ export default function Document() {
         <meta name="keywords" content="criminal asset recovery, reentry housing, formerly incarcerated, Bitcoin Land Bond, sustainable housing" />
         <meta name="theme-color" content="#1e293b" />
 
-        {/* Canonical URL */}
+        {/* Canonical URL - can be overridden by pages */}
         <link rel="canonical" href={canonicalUrl} />
 
-        {/* Open Graph / Social Media */}
+        {/* Open Graph / Social Media - Default tags for all pages */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
         <meta property="og:site_name" content="Bitcoin Land Bond" />
         <meta property="og:locale" content="en_US" />
 
@@ -35,6 +39,7 @@ export default function Document() {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
+        <meta name="twitter:domain" content={domain} />
 
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
