@@ -1,0 +1,11 @@
+{
+  "projectId": "prj_pkTde2vUmm12EKroob64qLzJhBnD",
+  "orgId": "team-4eckd",
+  "settings": {
+    "buildCommand": "next build",
+    "outputDirectory": ".next",
+    "devCommand": "next dev",
+    "framework": "nextjs",
+    "rootDirectory": "."
+  }
+}
