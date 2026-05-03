@@ -3,11 +3,6 @@
   "outputDirectory": ".next",
   "devCommand": "next dev",
   "framework": "nextjs",
-  "env": {
-    "NODE_ENV": {
-      "value": "production"
-    }
-  },
   "headers": [
     {
       "source": "/:path*",
