@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Land Bond - Criminal Asset Recovery Initiative</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap');
+        * { font-family: 'Work Sans', sans-serif; }
+        
+        .hero-blur {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-blur:nth-child(2) {
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -20px); }
+        }
+        
+        .phase-card {
+            transition: all 0.3s ease;
+        }
+        
+        .phase-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .progress-bar {
+            transition: width 1s ease-out;
+        }
+        
+        .metric-card {
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
+    <div class="min-h-screen">
+        <!-- HERO SECTION -->
+        <header class="relative overflow-hidden pt-20 pb-32">
+            <div class="absolute inset-0 opacity-30">
+                <div class="hero-blur absolute top-20 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl"></div>
+                <div class="hero-blur absolute bottom-20 right-10 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl"></div>
+            </div>
+
+            <div class="relative max-w-5xl mx-auto px-6 text-center">
+                <div class="mb-6 inline-block">
+                    <span class="text-sm font-mono uppercase tracking-widest text-blue-700 bg-blue-100 px-4 py-2 rounded-full">Criminal Asset Recovery Initiative</span>
+                </div>
+
+                <h1 class="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900">
+                    Bitcoin Land Bond
+                </h1>
+
+                <p class="text-xl md:text-2xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Housing formerly incarcerated people using seized criminal assets.
+                </p>
+
+                <div class="grid grid-cols-3 gap-4 md:gap-6 mb-12">
+                    <div class="bg-white bg-opacity-60 backdrop-blur rounded-lg p-4 md:p-6 border border-white border-opacity-50">
+                        <p class="text-4xl font-bold text-blue-900 mb-1">$15B</p>
+                        <p class="text-sm text-slate-700">Seized Crypto</p>
+                    </div>
+                    <div class="bg-white bg-opacity-60 backdrop-blur rounded-lg p-4 md:p-6 border border-white border-opacity-50">
+                        <p class="text-4xl font-bold text-blue-900 mb-1">600K</p>
+                        <p class="text-sm text-slate-700">Annual Reentry</p>
+                    </div>
+                    <div class="bg-white bg-opacity-60 backdrop-blur rounded-lg p-4 md:p-6 border border-white border-opacity-50">
+                        <p class="text-4xl font-bold text-blue-900 mb-1">5,000+</p>
+                        <p class="text-sm text-slate-700">Target Units</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CORE THESIS -->
+        <section class="max-w-5xl mx-auto px-6 py-24">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-6">The Problem</h2>
+                    <ul class="space-y-4 text-slate-700">
+                        <li class="flex gap-3">
+                            <span class="text-blue-600 font-bold mt-1">•</span>
+                            <span><strong>$15B in idle crypto</strong> in federal vaults</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-blue-600 font-bold mt-1">•</span>
+                            <span><strong>75% of landlords</strong> reject formerly incarcerated</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-blue-600 font-bold mt-1">•</span>
+                            <span><strong>5-7x higher homelessness</strong> in reentry populations</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-blue-600 font-bold mt-1">•</span>
+                            <span><strong>20-30% recidivism reduction</strong> with stable housing</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border border-red-200">
+                    <h3 class="text-xl font-bold text-red-900 mb-6">Asset Misalignment</h3>
+                    <p class="text-red-800 mb-6 leading-relaxed">
+                        Billions in seized criminal proceeds sit idle while formerly incarcerated people face housing exclusion that predicts reoffending.
+                    </p>
+                    <p class="text-red-800 font-semibold">
+                        This is a policy failure born of institutional misalignment, not scarcity.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUTION -->
+        <section class="bg-white bg-opacity-50 py-24 border-y border-blue-100">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4 text-center">The Solution</h2>
+                <p class="text-center text-xl text-slate-700 mb-16 max-w-2xl mx-auto">
+                    Convert volatile seized Bitcoin into permanent deed-restricted land for reentry housing
+                </p>
+
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 hover:shadow-lg transition-shadow">
+                        <div class="w-8 h-8 text-blue-700 mb-4 font-bold text-2xl">⚡</div>
+                        <h3 class="font-bold text-slate-900 mb-2">Liquidity</h3>
+                        <p class="text-sm text-slate-700">Bitcoin converts immediately to acquisition capital</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 hover:shadow-lg transition-shadow">
+                        <div class="w-8 h-8 text-blue-700 mb-4 font-bold text-2xl">📍</div>
+                        <h3 class="font-bold text-slate-900 mb-2">Land Trust</h3>
+                        <p class="text-sm text-slate-700">Deed-restricted perpetually in high-opportunity neighborhoods</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 hover:shadow-lg transition-shadow">
+                        <div class="w-8 h-8 text-blue-700 mb-4 font-bold text-2xl">📈</div>
+                        <h3 class="font-bold text-slate-900 mb-2">Appreciation</h3>
+                        <p class="text-sm text-slate-700">3-5% annual land appreciation generates secondary capital</p>
+                    </div>
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 hover:shadow-lg transition-shadow">
+                        <div class="w-8 h-8 text-blue-700 mb-4 font-bold text-2xl">🔐</div>
+                        <h3 class="font-bold text-slate-900 mb-2">Mission Lock</h3>
+                        <p class="text-sm text-slate-700">Restrictive covenants guarantee reentry housing use</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PILOT CITIES -->
+        <section class="max-w-5xl mx-auto px-6 py-24">
+            <h2 class="text-4xl font-bold text-slate-900 mb-4 text-center">5 Pilot Cities</h2>
+            <p class="text-center text-slate-700 mb-12">$500M deployment across opportunity hubs</p>
+
+            <div class="grid md:grid-cols-5 gap-4">
+                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200 text-center hover:shadow-lg transition-all">
+                    <div class="text-3xl mb-3">🌉</div>
+                    <h3 class="font-bold text-slate-900 mb-3">San Francisco</h3>
+                    <p class="text-sm text-slate-700"><span class="font-semibold">$100M</span> | 500-1,500 units</p>
+                </div>
+                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200 text-center hover:shadow-lg transition-all">
+                    <div class="text-3xl mb-3">🌳</div>
+                    <h3 class="font-bold text-slate-900 mb-3">Oakland</h3>
+                    <p class="text-sm text-slate-700"><span class="font-semibold">$100M</span> | 500-1,500 units</p>
+                </div>
+                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200 text-center hover:shadow-lg transition-all">
+                    <div class="text-3xl mb-3">☀️</div>
+                    <h3 class="font-bold text-slate-900 mb-3">Los Angeles</h3>
+                    <p class="text-sm text-slate-700"><span class="font-semibold">$100M</span> | 500-1,500 units</p>
+                </div>
+                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200 text-center hover:shadow-lg transition-all">
+                    <div class="text-3xl mb-3">🌊</div>
+                    <h3 class="font-bold text-slate-900 mb-3">Chicago</h3>
+                    <p class="text-sm text-slate-700"><span class="font-semibold">$100M</span> | 500-1,500 units</p>
+                </div>
+                <div class="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200 text-center hover:shadow-lg transition-all">
+                    <div class="text-3xl mb-3">🗽</div>
+                    <h3 class="font-bold text-slate-900 mb-3">New York</h3>
+                    <p class="text-sm text-slate-700"><span class="font-semibold">$100M</span> | 500-1,500 units</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROADMAP PHASES -->
+        <section class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-24" id="phases">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-4xl font-bold mb-4 text-center">Implementation Roadmap</h2>
+                <p class="text-center text-blue-100 mb-16 text-lg">Click any phase to explore details</p>
+
+                <div class="grid md:grid-cols-4 gap-4 mb-8">
+                    <div class="phase-card cursor-pointer bg-slate-800 hover:bg-slate-700 rounded-xl p-6 border border-slate-700" onclick="selectPhase(0)">
+                        <div class="font-bold text-lg mb-2">Establishment</div>
+                        <div class="text-sm text-blue-100 mb-3">Months 1-12</div>
+                        <div class="text-2xl font-bold">$100M</div>
+                    </div>
+                    <div class="phase-card cursor-pointer bg-slate-800 hover:bg-slate-700 rounded-xl p-6 border border-slate-700" onclick="selectPhase(1)">
+                        <div class="font-bold text-lg mb-2">Initial Deployment</div>
+                        <div class="text-sm text-blue-100 mb-3">Years 2-3</div>
+                        <div class="text-2xl font-bold">$200M</div>
+                    </div>
+                    <div class="phase-card cursor-pointer bg-slate-800 hover:bg-slate-700 rounded-xl p-6 border border-slate-700" onclick="selectPhase(2)">
+                        <div class="font-bold text-lg mb-2">Scaling</div>
+                        <div class="text-sm text-blue-100 mb-3">Years 4-7</div>
+                        <div class="text-2xl font-bold">$500M</div>
+                    </div>
+                    <div class="phase-card cursor-pointer bg-slate-800 hover:bg-slate-700 rounded-xl p-6 border border-slate-700" onclick="selectPhase(3)">
+                        <div class="font-bold text-lg mb-2">Self-Sustaining</div>
+                        <div class="text-sm text-blue-100 mb-3">Year 8+</div>
+                        <div class="text-2xl font-bold">3-5% Growth</div>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-slate-800 rounded-xl border border-blue-500 border-opacity-30">
+                    <div id="phase-content">
+                        <h3 class="text-xl font-bold mb-4">Phase 1: Establishment</h3>
+                        <ul class="space-y-2 text-blue-100 text-sm">
+                            <li>✓ DOJ guidance issued authorizing court-ordered redirection</li>
+                            <li>✓ Nonprofit incorporation & 501(c)(3) approval</li>
+                            <li>✓ 13-member Board assembled</li>
+                            <li>✓ First Bitcoin transfer: $100M</li>
+                            <li>✓ Pilot city engagement begins</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GOVERNANCE -->
+        <section class="max-w-5xl mx-auto px-6 py-24">
+            <h2 class="text-4xl font-bold text-slate-900 mb-4 text-center">13-Member Board</h2>
+            <p class="text-center text-slate-700 mb-12">Diverse representation across constituencies</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-200">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold">4</div>
+                        <h3 class="text-lg font-bold text-slate-900">Reentry/Criminal Justice</h3>
+                    </div>
+                    <p class="text-slate-700 text-sm">Formerly incarcerated leaders, reentry nonprofits, public defenders</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-200">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold">3</div>
+                        <h3 class="text-lg font-bold text-slate-900">Housing & Development</h3>
+                    </div>
+                    <p class="text-slate-700 text-sm">Nonprofit developers, community land trusts, finance professionals</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-200">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold">3</div>
+                        <h3 class="text-lg font-bold text-slate-900">Finance & Governance</h3>
+                    </div>
+                    <p class="text-slate-700 text-sm">Nonprofit CFO, impact investor, legal compliance</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-200">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-emerald-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold">3</div>
+                        <h3 class="text-lg font-bold text-slate-900">Community/Government</h3>
+                    </div>
+                    <p class="text-slate-700 text-sm">Local officials (3 cities), neighborhood representatives</p>
+                </div>
+            </div>
+
+            <div class="bg-emerald-50 rounded-xl p-8 border-2 border-emerald-300">
+                <h3 class="font-bold text-slate-900 mb-4">Community Advisory Board</h3>
+                <p class="text-slate-700">
+                    15-20 formerly incarcerated leaders, residents, and neighborhood representatives meet monthly to provide lived-experience guidance. CAB has affirmative vote authority on land disposition, major service changes, and community-facing policy decisions.
+                </p>
+            </div>
+        </section>
+
+        <!-- CAPITAL ALLOCATION -->
+        <section class="bg-gradient-to-br from-orange-50 to-amber-50 py-24 border-y border-orange-200">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-4xl font-bold text-slate-900 mb-4 text-center">Capital Allocation</h2>
+                <p class="text-center text-slate-700 mb-16">How $500M is deployed</p>
+
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-slate-900">Land Acquisition & Ground Leases</span>
+                            <span class="text-orange-700 font-bold">45%</span>
+                        </div>
+                        <div class="w-full bg-orange-100 rounded-full h-3">
+                            <div class="h-full bg-orange-600 rounded-full progress-bar" style="width: 45%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-slate-900">Developer Partnerships & Construction</span>
+                            <span class="text-orange-700 font-bold">30%</span>
+                        </div>
+                        <div class="w-full bg-orange-100 rounded-full h-3">
+                            <div class="h-full bg-orange-500 rounded-full progress-bar" style="width: 30%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-slate-900">Resident Services & Outcomes</span>
+                            <span class="text-orange-700 font-bold">20%</span>
+                        </div>
+                        <div class="w-full bg-orange-100 rounded-full h-3">
+                            <div class="h-full bg-orange-400 rounded-full progress-bar" style="width: 20%"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-semibold text-slate-900">Administration & Governance</span>
+                            <span class="text-orange-700 font-bold">5%</span>
+                        </div>
+                        <div class="w-full bg-orange-100 rounded-full h-3">
+                            <div class="h-full bg-orange-300 rounded-full progress-bar" style="width: 5%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OUTCOMES -->
+        <section class="max-w-5xl mx-auto px-6 py-24">
+            <h2 class="text-4xl font-bold text-slate-900 mb-4 text-center">Measured Outcomes</h2>
+            <p class="text-center text-slate-700 mb-12">Annual impact reporting and accountability</p>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="metric-card bg-white rounded-xl p-6 border-2 border-blue-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Housing Stability</h3>
+                    <p class="text-sm text-slate-700 mb-4">12-month retention</p>
+                    <div class="bg-blue-50 rounded px-3 py-2">
+                        <p class="text-sm font-semibold text-blue-900">95%+ Target</p>
+                    </div>
+                </div>
+
+                <div class="metric-card bg-white rounded-xl p-6 border-2 border-blue-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Employment Outcomes</h3>
+                    <p class="text-sm text-slate-700 mb-4">Job placement & retention (12 mo)</p>
+                    <div class="bg-blue-50 rounded px-3 py-2">
+                        <p class="text-sm font-semibold text-blue-900">70%+ Target</p>
+                    </div>
+                </div>
+
+                <div class="metric-card bg-white rounded-xl p-6 border-2 border-blue-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Recidivism Reduction</h3>
+                    <p class="text-sm text-slate-700 mb-4">vs. control cohorts</p>
+                    <div class="bg-blue-50 rounded px-3 py-2">
+                        <p class="text-sm font-semibold text-blue-900">20-30% Reduction</p>
+                    </div>
+                </div>
+
+                <div class="metric-card bg-white rounded-xl p-6 border-2 border-blue-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Income Growth</h3>
+                    <p class="text-sm text-slate-700 mb-4">Median earnings increase (Y1-Y2)</p>
+                    <div class="bg-blue-50 rounded px-3 py-2">
+                        <p class="text-sm font-semibold text-blue-900">$8K-$12K Target</p>
+                    </div>
+                </div>
+
+                <div class="metric-card bg-white rounded-xl p-6 border-2 border-blue-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Family Reunification</h3>
+                    <p class="text-sm text-slate-700 mb-4">Residents with family</p>
+                    <div class="bg-blue-50 rounded px-3 py-2">
+                        <p class="text-sm font-semibold text-blue-900">60%+ Target</p>
+                    </div>
+                </div>
+
+                <div class="metric-card bg-white rounded-xl p-6 border-2 border-blue-200">
+                    <h3 class="font-bold text-slate-900 mb-2">Health Outcomes</h3>
+                    <p class="text-sm text-slate-700 mb-4">Behavioral health access</p>
+                    <div class="bg-blue-50 rounded px-3 py-2">
+                        <p class="text-sm font-semibold text-blue-900">85%+ Access</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <footer class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white py-20">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <h2 class="text-4xl font-bold mb-6">Build Housing</h2>
+                <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto">
+                    Should billions in seized criminal proceeds sit in federal vaults while reentry populations face housing exclusion? Or deploy those assets toward measurable social good?
+                </p>
+                
+                <div class="bg-white bg-opacity-10 rounded-xl p-8 border border-blue-400 border-opacity-50 inline-block">
+                    <p class="text-blue-100 text-sm uppercase tracking-widest mb-4">Next Steps</p>
+                    <div class="space-y-3 text-lg">
+                        <p>1. Board of Directors Recruitment</p>
+                        <p>2. Philanthropic Capital Front-Loading ($50-100M)</p>
+                        <p>3. DOJ Prosecutorial Guidance</p>
+                        <p>4. Pilot City Launch (6-12 months)</p>
+                    </div>
+                </div>
+
+                <p class="mt-12 text-blue-200 text-sm">
+                    Bitcoin Land Bond | Criminal Asset Recovery Initiative
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const phases = [
+            {
+                title: "Establishment",
+                period: "Months 1-12",
+                milestones: [
+                    "DOJ guidance issued authorizing court-ordered redirection",
+                    "Nonprofit incorporation & 501(c)(3) approval",
+                    "13-member Board assembled",
+                    "First Bitcoin transfer: $100M",
+                    "Pilot city engagement begins"
+                ]
+            },
+            {
+                title: "Initial Deployment",
+                period: "Years 2-3",
+                milestones: [
+                    "Identify 75-100 land parcels in opportunity neighborhoods",
+                    "Close on 40-50 acquisitions",
+                    "Execute 20-25 ground leases with nonprofit developers",
+                    "Deploy $50-75M in resident services",
+                    "250+ residents move into housing"
+                ]
+            },
+            {
+                title: "Scaling",
+                period: "Years 4-7",
+                milestones: [
+                    "Portfolio stabilizes at 80-100 land holdings",
+                    "Ground lease income begins flowing",
+                    "Land appreciation: $10-15M/year in secondary capital",
+                    "Expand to secondary tier cities",
+                    "1,500+ units; 2,000+ residents served"
+                ]
+            },
+            {
+                title: "Self-Sustaining",
+                period: "Year 8+",
+                milestones: [
+                    "Land holdings generate $15-25M/year from appreciation",
+                    "Operations fully funded without additional capital infusions",
+                    "5,000+ units across nation",
+                    "6,000+ formerly incarcerated residents stably housed",
+                    "Measurable recidivism impact at scale"
+                ]
+            }
+        ];
+
+        function selectPhase(index) {
+            const phase = phases[index];
+            const content = document.getElementById('phase-content');
+            content.innerHTML = `
+                <h3 class="text-xl font-bold mb-4">Phase ${index + 1}: ${phase.title}</h3>
+                <div class="text-sm text-blue-100 mb-4">${phase.period}</div>
+                <ul class="space-y-2 text-blue-100 text-sm">
+                    ${phase.milestones.map(m => `<li>✓ ${m}</li>`).join('')}
+                </ul>
+            `;
+        }
+
+        // Highlight all cards on load
+        document.addEventListener('DOMContentLoaded', () => {
+            selectPhase(0);
+        });
+    </script>
+</body>
+</html>
