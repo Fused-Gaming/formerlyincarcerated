@@ -343,4 +343,3 @@ export default function BitcoinLandBond() {
     </div>
   );
 }
-// Deployment test: Vercel root directory configuration fixed
