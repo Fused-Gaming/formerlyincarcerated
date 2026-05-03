@@ -1,14 +1,29 @@
 # Open Graph Tags Configuration Guide
 
-This guide explains how to use Open Graph (OG) tags for social media sharing across all pages of the Bitcoin Land Bond website.
+This guide explains how to use Open Graph (OG) tags for comprehensive social media sharing across all pages of the Bitcoin Land Bond website.
 
 ## Overview
 
-Open Graph tags are meta tags that control how content appears when shared on social media platforms (Facebook, Twitter, LinkedIn, etc.). The implementation provides:
+Open Graph tags are meta tags that control how content appears when shared on social media platforms. The implementation provides full support for:
+
+**Supported Platforms:**
+- Facebook & Instagram
+- Twitter/X
+- LinkedIn
+- Discord
+- Telegram
+- Reddit
+- Pinterest
+- Slack
+- WhatsApp
+- And more
+
+The implementation provides:
 
 - **Default OG tags** for all pages (set in `_document.jsx`)
 - **Per-page customization** for specific pages
 - **Consistent social media previews** across the domain
+- **Universal compatibility** with major social platforms
 
 ## Default Configuration
 
@@ -86,21 +101,99 @@ Place your Open Graph image in the `public/` directory:
 
 ### Meta Tags Included
 
-The system automatically generates:
-- `og:type` - Type of content
+The system automatically generates comprehensive tags for all platforms:
+
+#### Open Graph Tags (Facebook, LinkedIn, Discord, Telegram, Reddit, Pinterest, Slack, WhatsApp)
+- `og:type` - Type of content (website, article, etc.)
 - `og:url` - Canonical URL
 - `og:title` - Page title
 - `og:description` - Page description
 - `og:image` - Social media preview image
-- `og:image:width` - Image width
-- `og:image:height` - Image height
+- `og:image:secure_url` - HTTPS image URL
+- `og:image:width` - Image width (1200)
+- `og:image:height` - Image height (630)
+- `og:image:type` - Image format (image/png)
 - `og:site_name` - Site name
-- `og:locale` - Language/locale
-- `twitter:card` - Twitter card type
-- `twitter:url` - Twitter URL
-- `twitter:title` - Twitter title
-- `twitter:description` - Twitter description
-- `twitter:image` - Twitter image
+- `og:locale` - Language/locale (en_US)
+
+#### Twitter/X Card Tags
+- `twitter:card` - Card type (summary_large_image)
+- `twitter:site` - Site handle (@formerlyincarcerated)
+- `twitter:url` - Tweet URL
+- `twitter:title` - Tweet title
+- `twitter:description` - Tweet description
+- `twitter:image` - Tweet image
+- `twitter:image:alt` - Image alt text for accessibility
+- `twitter:domain` - Domain for verification
+
+#### Platform-Specific Tags
+- `theme-color` - Discord embed color (#10b981)
+- `telegram:image` - Telegram preview image
+- `image` - Generic image meta tag (universal)
+- `description` - Generic description (universal)
+- `msapplication-TileImage` - Windows tile image
+
+#### Security & Accessibility
+- Secure image URLs for HTTPS compatibility
+- Image alt text for screen readers
+- Proper image dimensions for optimal rendering
+
+## Platform Support Details
+
+### Facebook & Instagram
+Uses Open Graph tags for rich previews. Supports:
+- Title, description, and image
+- Image dimensions (1200x630px recommended)
+- Secure image URL fallback
+
+### Twitter/X
+Full Twitter Card support with:
+- Summary Large Image card type
+- Site handle (@formerlyincarcerated)
+- Image alt text for accessibility
+- Domain verification
+
+### LinkedIn
+Uses Open Graph tags for:
+- Document preview on profile shares
+- Rich article cards
+- Image display in feed
+
+### Discord
+Uses Open Graph tags plus:
+- Theme color (#10b981 - emerald green) for embed color
+- Rich embed previews with image
+- Title and description in embed
+
+### Telegram
+Uses Open Graph tags plus:
+- Dedicated image tag for preview
+- Title and description from OG tags
+- Rich message preview
+
+### Reddit
+Uses Open Graph tags for:
+- Thumbnail preview in feeds
+- Post preview cards
+- Title and description display
+
+### Pinterest
+Uses Open Graph tags for:
+- Pin creation from URLs
+- Rich pin previews
+- Image pinning
+
+### Slack
+Uses Open Graph tags for:
+- Message unfurling/preview
+- Rich link previews
+- Image embedding
+
+### WhatsApp
+Uses Open Graph tags for:
+- Message preview cards
+- Image display
+- Title and description
 
 ## Testing Social Media Previews
 
@@ -114,12 +207,32 @@ Use the [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/
 Use the [Twitter Card Validator](https://cards-dev.twitter.com/validator):
 1. Enter your URL
 2. Check the preview
-3. Verify image dimensions
+3. Verify image dimensions and alt text
 
 ### LinkedIn
 1. Copy your page URL
 2. Paste in LinkedIn's update box
 3. Wait for preview to load
+
+### Discord
+1. Paste your URL in a Discord message
+2. Wait for embed to unfurl
+3. Check title, description, and theme color
+
+### Telegram
+1. Share link in Telegram chat
+2. Preview will show title, description, and image
+3. Verify layout and appearance
+
+### Reddit
+1. Create a post with your URL
+2. Submit and view preview
+3. Check thumbnail and title display
+
+### Slack
+1. Paste URL in Slack message
+2. Unfurl preview will appear
+3. Verify image and text display
 
 ## Best Practices
 
