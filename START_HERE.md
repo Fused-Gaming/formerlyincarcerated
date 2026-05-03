@@ -32,7 +32,7 @@ vercel --prod
 - Fully responsive (mobile-friendly)
 
 ✅ **Policy Documentation**
-- 7,500+ word white paper
+- 7,500+ word white paper (https://formerlyincarcerated.org/whitepaper)
 - Complete governance framework
 - Financial model (4-phase, $500M deployment)
 - Legal pathways (statutory & executive)
@@ -217,7 +217,7 @@ If all show versions → You're ready to deploy!
                           ↓
 ┌─────────────────────────────────────────────────────┐
 │  Live (50+ global edge locations)                   │
-│  https://bitcoin-land-bond-XXXXX.vercel.app        │
+│  https://formerlyincarcerated.org                  │
 │  (Public, anyone can visit)                         │
 └─────────────────────────────────────────────────────┘
 ```

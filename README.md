@@ -46,7 +46,7 @@ vercel --prod
 - `CODEBASE.md` - Complete project inventory and structure
 - `START_HERE.md` - Deployment quick-start guide
 - `DEPLOYMENT_GUIDE.md` - Step-by-step deployment instructions
-- `Bitcoin_Land_Bond_White_Paper.docx` - Full policy document
+- **White Paper** - https://formerlyincarcerated.org/whitepaper (Full policy document)
 
 ## 🛠 Tech Stack
 
@@ -146,11 +146,21 @@ All security headers configured in `vercel.json`:
 4. Push to origin
 5. Vercel auto-deploys on merge
 
+## 🌐 Live Application
+
+- **Main Site:** https://formerlyincarcerated.org
+- **White Paper:** https://formerlyincarcerated.org/whitepaper
+- **Impact Page:** https://formerlyincarcerated.org/impact
+- **Model Details:** https://formerlyincarcerated.org/model
+- **Partners:** https://formerlyincarcerated.org/partners
+- **Documentation:** https://formerlyincarcerated.org/docs
+
 ## 📞 Support
 
-- See `DEPLOYMENT_CHECKLIST.md` for troubleshooting
-- Check Vercel dashboard for deployment status
-- Review browser console for client-side errors
+- **Email:** hello@formerlyincarcerated.org
+- **Troubleshooting:** See `DEPLOYMENT_CHECKLIST.md` for common issues
+- **Deployment Status:** Check Vercel dashboard at https://vercel.com
+- **Issues:** Review browser console for client-side errors
 
 ## 📄 License
 
@@ -159,4 +169,5 @@ See LICENSE file for details.
 ---
 
 **Bitcoin Land Bond** | Criminal Asset Recovery Initiative  
+*Deploying $15B in seized cryptocurrency to fund permanent deed-restricted housing*  
 *Ready for Launch* 🚀

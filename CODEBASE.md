@@ -12,7 +12,9 @@
 formerlyincarcerated/
 ├── pages/                          # Next.js pages and routing
 │   ├── index.jsx                   # Landing page with full Bitcoin Land Bond component
+│   ├── whitepaper.jsx              # White paper document page (https://formerlyincarcerated.org/whitepaper)
 │   └── _app.jsx                    # Next.js app wrapper and global providers
+│   └── _document.jsx               # Next.js document with meta tags and canonical URLs
 ├── styles/                         # Global stylesheets
 │   └── globals.css                 # Tailwind CSS directives and custom animations
 ├── public/                         # Static assets (images, fonts, etc.)
@@ -32,8 +34,7 @@ formerlyincarcerated/
 ├── DEPLOYMENT_SUMMARY.md          # Complete deployment overview
 ├── DEPLOYMENT_ARCHITECTURE.txt    # Architecture diagram
 ├── EXACT_DEPLOYMENT_COMMANDS.md   # Copy-paste deployment commands
-├── Bitcoin_Land_Bond_White_Paper.docx  # Complete policy document
-└── bitcoin-land-bond-frontend.jsx # Original component (deprecated, moved to pages/index.jsx)
+└── pages/whitepaper.jsx           # White paper page endpoint
 ```
 
 ---
