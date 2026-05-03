@@ -14,8 +14,10 @@
     "@h4shed/mcp-cli": "^1.0.11",
     "@h4shed/mcp-core": "^1.0.11",
     "@h4shed/skill-syncpulse": "^0.2.0",
+    "@react-pdf/renderer": "^4.5.1",
     "lucide-react": "0.408.0",
     "next": "15.2.6",
+    "pdfjs-dist": "^5.7.284",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
