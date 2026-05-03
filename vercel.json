@@ -3,7 +3,6 @@
   "outputDirectory": ".next",
   "devCommand": "next dev",
   "framework": "nextjs",
-  "root": ".",
   "headers": [
     {
       "source": "/:path*",
