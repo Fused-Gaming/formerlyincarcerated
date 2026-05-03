@@ -1,10 +1,17 @@
 import React from 'react';
 import { ArrowLeft, Download } from 'lucide-react';
 import Link from 'next/link';
+import OpenGraphHead from '../components/OpenGraphHead';
 
 export default function WhitepaperPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
+    <>
+      <OpenGraphHead
+        title="Bitcoin Land Bond White Paper"
+        description="Download our comprehensive white paper on using seized cryptocurrency to fund permanent housing for 600,000+ formerly incarcerated individuals annually."
+        url="https://formerlyincarcerated.org/whitepaper"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
       {/* Animated background */}
       <div className="fixed inset-0 z-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl animate-pulse"></div>
@@ -164,5 +171,6 @@ export default function WhitepaperPage() {
         </div>
       </main>
     </div>
+    </>
   );
 }
