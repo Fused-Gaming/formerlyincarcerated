@@ -12,8 +12,8 @@ import { createOGTags } from '../lib/og-tags';
  *   url="https://formerlyincarcerated.org/whitepaper"
  * />
  */
-export default function OpenGraphHead({ title, description, image, url, type = 'website' }) {
-  const ogTags = createOGTags({ title, description, image, url, type });
+export default function OpenGraphHead({ title, description, image, url, type = 'website', imageWidth, imageHeight }) {
+  const ogTags = createOGTags({ title, description, image, url, type, imageWidth, imageHeight });
 
   return (
     <Head>
