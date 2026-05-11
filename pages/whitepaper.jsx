@@ -7,9 +7,13 @@ export default function WhitepaperPage() {
   return (
     <>
       <OpenGraphHead
-        title="Bitcoin Land Bond White Paper"
-        description="Download our comprehensive white paper on using seized cryptocurrency to fund permanent housing for 600,000+ formerly incarcerated individuals annually."
+        title="Bitcoin Land Bond White Paper - Criminal Asset Recovery Initiative"
+        description="Download our comprehensive white paper on using seized cryptocurrency to fund permanent deed-restricted housing for 600,000+ formerly incarcerated individuals annually. Policy framework, implementation roadmap, and financial model included."
+        image="/whitepaper-og-preview.png"
+        imageWidth="1536"
+        imageHeight="1024"
         url="https://formerlyincarcerated.org/whitepaper"
+        type="article"
       />
       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
       {/* Animated background */}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, MapPin, Users, Home, TrendingUp, Lock, ArrowRight } from 'lucide-react';
+import OpenGraphHead from '../components/OpenGraphHead';
 
 export default function BitcoinLandBond() {
   const [activeTab, setActiveTab] = useState('impact');
@@ -12,7 +13,14 @@ export default function BitcoinLandBond() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden">
+    <>
+      <OpenGraphHead
+        title="Bitcoin Land Bond - Criminal Asset Recovery Initiative"
+        description="The Bitcoin Land Bond deploys $15B in seized cryptocurrency to fund permanent deed-restricted housing for 600,000+ formerly incarcerated people annually."
+        image="/og-image.png"
+        url="https://formerlyincarcerated.org"
+      />
+      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white overflow-hidden">
       {/* Animated background elements */}
       <div className="fixed inset-0 z-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl animate-pulse"></div>
@@ -340,6 +348,7 @@ export default function BitcoinLandBond() {
           animation-delay: 1s;
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 }
