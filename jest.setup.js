@@ -1,4 +1,5 @@
-require('@testing-library/jest-dom')
+// Setup @testing-library/jest-dom
+import '@testing-library/jest-dom'
 
 // Mock next/router
 jest.mock('next/router', () => ({
@@ -32,22 +33,4 @@ jest.mock('next/link', () => {
   return ({ children, href }) => {
     return children
   }
-})
-
-// Suppress console errors in tests
-const originalError = console.error
-beforeAll(() => {
-  console.error = (...args) => {
-    if (
-      typeof args[0] === 'string' &&
-      args[0].includes('Warning: useLayoutEffect does nothing on the server')
-    ) {
-      return
-    }
-    originalError.call(console, ...args)
-  }
-})
-
-afterAll(() => {
-  console.error = originalError
 })
