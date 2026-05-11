@@ -6,12 +6,6 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   testEnvironment: 'jest-environment-jsdom',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
-  moduleNameMapper: {
-    '^@/components/(.*)$': '<rootDir>/components/$1',
-    '^@/lib/(.*)$': '<rootDir>/lib/$1',
-    '^@/pages/(.*)$': '<rootDir>/pages/$1',
-  },
   testMatch: ['**/__tests__/**/*.test.{js,jsx}'],
   collectCoverageFrom: [
     'pages/**/*.{js,jsx}',
