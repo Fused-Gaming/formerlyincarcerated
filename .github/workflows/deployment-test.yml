@@ -1,0 +1,228 @@
+name: Deployment Test & Verification
+
+on:
+  push:
+    branches: [main, claude/white-papers-social-preview-bRJ4w]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint --if-present
+
+      - name: Run tests
+        run: npm test -- --coverage --passWithNoTests
+
+      - name: Upload coverage reports
+        if: matrix.node-version == '20.x'
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/lcov.info
+          flags: unittests
+          name: codecov-umbrella
+
+      - name: Build Next.js application
+        run: npm run build
+        env:
+          CI: true
+
+      - name: Check for build artifacts
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "❌ Build failed: .next directory not found"
+            exit 1
+          fi
+          echo "✅ Build artifacts created successfully"
+
+  deployment-verification:
+    name: Verify Deployment Assets
+    runs-on: ubuntu-latest
+    needs: build-and-test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build application
+        run: npm run build
+
+      - name: Verify public assets exist
+        run: |
+          echo "Checking public assets..."
+
+          # Check required images
+          if [ ! -f "public/og-image.png" ]; then
+            echo "❌ Missing public/og-image.png"
+            exit 1
+          fi
+          echo "✅ og-image.png exists"
+
+          if [ ! -f "public/whitepaper-og-preview.png" ]; then
+            echo "❌ Missing public/whitepaper-og-preview.png"
+            exit 1
+          fi
+          echo "✅ whitepaper-og-preview.png exists"
+
+          if [ ! -f "public/bitcoin-land-bond-social-square.png" ]; then
+            echo "❌ Missing public/bitcoin-land-bond-social-square.png"
+            exit 1
+          fi
+          echo "✅ bitcoin-land-bond-social-square.png exists"
+
+          # Check downloadable whitepaper
+          if [ ! -f "public/bitcoin-land-bond-whitepaper.docx" ]; then
+            echo "❌ Missing public/bitcoin-land-bond-whitepaper.docx"
+            exit 1
+          fi
+          echo "✅ bitcoin-land-bond-whitepaper.docx exists"
+
+          echo "✅ All required assets verified"
+
+      - name: Verify page components exist
+        run: |
+          echo "Checking page components..."
+
+          if [ ! -f "pages/whitepaper.jsx" ]; then
+            echo "❌ Missing pages/whitepaper.jsx"
+            exit 1
+          fi
+          echo "✅ whitepaper.jsx exists"
+
+          if [ ! -f "pages/index.jsx" ]; then
+            echo "❌ Missing pages/index.jsx"
+            exit 1
+          fi
+          echo "✅ index.jsx exists"
+
+          if [ ! -f "components/OpenGraphHead.jsx" ]; then
+            echo "❌ Missing components/OpenGraphHead.jsx"
+            exit 1
+          fi
+          echo "✅ OpenGraphHead.jsx exists"
+
+          echo "✅ All required components verified"
+
+      - name: Verify download links in whitepaper page
+        run: |
+          echo "Checking whitepaper page for download links..."
+
+          if ! grep -q 'download="Bitcoin-Land-Bond-Whitepaper.docx"' pages/whitepaper.jsx; then
+            echo "❌ Missing download attribute in whitepaper links"
+            exit 1
+          fi
+          echo "✅ Download attributes present"
+
+          if ! grep -q 'href="/bitcoin-land-bond-whitepaper.docx"' pages/whitepaper.jsx; then
+            echo "❌ Missing whitepaper file reference in download links"
+            exit 1
+          fi
+          echo "✅ Whitepaper file reference present"
+
+          if ! grep -q 'data-testid="download-full-whitepaper"' pages/whitepaper.jsx; then
+            echo "❌ Missing test IDs for download buttons"
+            exit 1
+          fi
+          echo "✅ Test IDs present"
+
+          echo "✅ Download functionality verified"
+
+      - name: Verify Open Graph configuration
+        run: |
+          echo "Checking Open Graph configuration..."
+
+          if ! grep -q 'og:title' pages/_document.jsx; then
+            echo "❌ Missing og:title in _document.jsx"
+            exit 1
+          fi
+          echo "✅ og:title configured"
+
+          if ! grep -q 'og:image' pages/_document.jsx; then
+            echo "❌ Missing og:image in _document.jsx"
+            exit 1
+          fi
+          echo "✅ og:image configured"
+
+          if ! grep -q 'twitter:card' pages/_document.jsx; then
+            echo "❌ Missing twitter:card in _document.jsx"
+            exit 1
+          fi
+          echo "✅ twitter:card configured"
+
+          echo "✅ Open Graph configuration verified"
+
+      - name: Content validity check
+        run: |
+          echo "Performing content validity checks..."
+
+          # Check that page has proper structure
+          if ! grep -q "Bitcoin Land Bond" pages/whitepaper.jsx; then
+            echo "❌ Missing site name in whitepaper page"
+            exit 1
+          fi
+          echo "✅ Site name present"
+
+          if ! grep -q "Criminal Asset Recovery Initiative" pages/whitepaper.jsx; then
+            echo "❌ Missing initiative description"
+            exit 1
+          fi
+          echo "✅ Initiative description present"
+
+          if ! grep -q "600,000" pages/whitepaper.jsx; then
+            echo "❌ Missing key metric"
+            exit 1
+          fi
+          echo "✅ Key metrics present"
+
+          echo "✅ Content validity verified"
+
+  summary:
+    name: Test Summary
+    runs-on: ubuntu-latest
+    needs: [build-and-test, deployment-verification]
+    if: always()
+
+    steps:
+      - name: Check test results
+        run: |
+          if [ "${{ needs.build-and-test.result }}" == "failure" ] || [ "${{ needs.deployment-verification.result }}" == "failure" ]; then
+            echo "❌ Tests failed. Please review the logs above."
+            exit 1
+          fi
+
+          echo "✅ All deployment tests passed!"
+          echo "✅ Build successful"
+          echo "✅ Assets verified"
+          echo "✅ Download functionality confirmed"
+          echo "✅ Open Graph tags configured"
+          echo ""
+          echo "The application is ready for deployment to production."
