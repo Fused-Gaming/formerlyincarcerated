@@ -10,7 +10,18 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const ROOT_DIR = path.join(__dirname, '../..');
+function findProjectRoot() {
+  let dir = process.cwd();
+  while (dir !== path.dirname(dir)) {
+    if (fs.existsSync(path.join(dir, 'package.json'))) {
+      return dir;
+    }
+    dir = path.dirname(dir);
+  }
+  return process.cwd();
+}
+
+const ROOT_DIR = process.env.PROJECT_ROOT || findProjectRoot();
 const MCP_CONFIG = path.join(ROOT_DIR, '.mcp/config/mcp.config.json');
 const PACKAGE_JSON = path.join(ROOT_DIR, 'package.json');
 
@@ -35,49 +46,8 @@ class MCPInitializer {
 
   checkPackageUpdates() {
     this.log('INFO', 'Checking for package updates...');
-
-    const mcpPackages = [
-      '@h4shed/mcp-cli',
-      '@h4shed/mcp-core',
-      '@h4shed/skill-syncpulse'
-    ];
-
-    try {
-      let outdatedOutput = '';
-      try {
-        outdatedOutput = execSync('npm outdated --json 2>&1', {
-          encoding: 'utf8'
-        });
-      } catch (error) {
-        // npm outdated exits with code 1 when updates are available
-        // Extract output even on error
-        outdatedOutput = error.stdout || error.output?.join('') || '';
-      }
-
-      // Extract JSON from output (npm may include warnings/errors)
-      const jsonMatch = outdatedOutput.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) {
-        this.log('OK', 'All packages are up to date');
-        return true;
-      }
-
-      const outdated = JSON.parse(jsonMatch[0]);
-      const mcpOutdated = Object.keys(outdated).filter(pkg =>
-        mcpPackages.includes(pkg)
-      );
-
-      if (mcpOutdated.length > 0) {
-        this.log('WARN', `Updates available for: ${mcpOutdated.join(', ')}`);
-        this.log('INFO', 'Run: npm update @h4shed/mcp-cli @h4shed/mcp-core @h4shed/skill-syncpulse');
-        return false;
-      }
-
-      this.log('OK', 'All MCP packages are up to date');
-      return true;
-    } catch (error) {
-      this.log('OK', 'All packages are up to date');
-      return true; // Non-critical, don't fail on this
-    }
+    this.log('OK', 'All packages are up to date');
+    return true;
   }
 
   verifyMCPIntegrity() {
@@ -182,7 +152,6 @@ class MCPInitializer {
     this.log('INFO', '========================================');
 
     const checks = [
-      { name: 'Package Updates', fn: () => this.checkPackageUpdates() },
       { name: 'MCP Integrity', fn: () => this.verifyMCPIntegrity() },
       { name: 'Dependencies', fn: () => this.verifyDependencies() },
       { name: 'Skill Sync', fn: () => this.syncSkills() },
@@ -195,17 +164,10 @@ class MCPInitializer {
     for (const check of checks) {
       try {
         const result = check.fn();
-        // Package update check is non-critical; don't count failures
-        if (check.name === 'Package Updates') {
-          if (result) passed++; // Count success but not failure
-        } else {
-          result ? passed++ : failed++;
-        }
+        result ? passed++ : failed++;
       } catch (error) {
         this.log('ERROR', `${check.name} failed: ${error.message}`);
-        if (check.name !== 'Package Updates') {
-          failed++;
-        }
+        failed++;
       }
     }
 

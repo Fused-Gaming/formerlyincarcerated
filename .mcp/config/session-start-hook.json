@@ -7,27 +7,11 @@
   "commands": [
     {
       "order": 1,
-      "name": "check-package-updates",
-      "command": "npm run mcp:check-updates",
-      "failSilently": true,
-      "timeout": 10000,
-      "description": "Check for updates to @h4shed packages"
-    },
-    {
-      "order": 2,
       "name": "verify-mcp-integrity",
-      "command": "npm run mcp:init",
-      "failSilently": false,
-      "timeout": 15000,
-      "description": "Verify MCP framework integrity and initialize"
-    },
-    {
-      "order": 3,
-      "name": "sync-skills",
-      "command": "node .mcp/scripts/init-mcp.js",
+      "command": "cd /home/user/formerlyincarcerated && node .mcp/scripts/init-mcp.js",
       "failSilently": false,
       "timeout": 10000,
-      "description": "Synchronize available skills"
+      "description": "Verify MCP framework integrity and initialize"
     }
   ],
   "environment": {
