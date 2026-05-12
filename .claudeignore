@@ -1,0 +1,78 @@
+# MCP Framework - Local Configuration
+.mcp/config/mcp.config.json
+
+# Node modules and cache
+node_modules/
+.npm/
+.next/
+out/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+.env.*.private
+
+# Deployment and build
+dist/
+build/
+.vercel/
+.vercel-artifacts/
+
+# IDE and editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing artifacts
+coverage/
+.nyc_output/
+jest-coverage/
+*.lcov
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Lock files (project imports these)
+package-lock.json.orig
+yarn.lock.orig
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Git-related
+.git/
+.gitignore.orig
+
+# CI/CD artifacts
+.github/workflows/artifacts/
+ci-logs/
+
+# Database
+.sqlite
+*.db
+*.sqlite3
+
+# Cache
+.cache/
+.eslintcache
+.stylelintcache
+
+# MCP Local Runtime (auto-generated)
+.mcp/runtime/
+.mcp/cache/
+.mcp/*.log
+
+# Development only
+*.local.js
+.claude/
+.dev/
