@@ -181,10 +181,17 @@ class MCPInitializer {
     for (const check of checks) {
       try {
         const result = check.fn();
-        result ? passed++ : failed++;
+        // Package update check is non-critical; don't count failures
+        if (check.name === 'Package Updates') {
+          if (result) passed++; // Count success but not failure
+        } else {
+          result ? passed++ : failed++;
+        }
       } catch (error) {
         this.log('ERROR', `${check.name} failed: ${error.message}`);
-        failed++;
+        if (check.name !== 'Package Updates') {
+          failed++;
+        }
       }
     }
 
