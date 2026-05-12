@@ -7,32 +7,20 @@ module.exports = {
   ],
   theme: {
     colors: {
-      // Primary brand colors
-      amber: {
-        300: '#fcd34d',
-        400: '#facc15',
-        500: '#f59e0b',
-        600: '#d97706',
-        700: '#b45309',
-        800: '#92400e',
-        900: '#78350f',
-      },
-      emerald: {
-        400: '#34d399',
-        500: '#10b981',
-        600: '#059669',
-        700: '#047857',
-        800: '#065f46',
-        900: '#064e3b',
-      },
-      blue: {
-        400: '#60a5fa',
-        500: '#3b82f6',
-        600: '#2563eb',
-        700: '#1d4ed8',
-        800: '#1e40af',
-        900: '#1e3a8a',
-      },
+      // Human Park Initiative Brand Colors
+      // Core Palette
+      'hp-black': '#050505',
+      'hp-charcoal': '#111111',
+      'hp-dark': '#1A1A1A',
+      'hp-orange': '#F7931A',
+      'hp-orange-deep': '#D97706',
+      'hp-orange-glow': '#FFB347',
+      'hp-cream': '#F6F1E8',
+      'hp-white': '#FFFFFF',
+      'hp-gray-light': '#E5E5E5',
+      'hp-gray-medium': '#A3A3A3',
+      'hp-gray-dark': '#525252',
+
       // Grayscale
       slate: {
         50: '#f8fafc',
@@ -65,9 +53,44 @@ module.exports = {
         500: '#eab308',
         600: '#ca8a04',
       },
+      // Legacy colors for compatibility
+      amber: {
+        300: '#fcd34d',
+        400: '#facc15',
+        500: '#f59e0b',
+        600: '#d97706',
+        700: '#b45309',
+        800: '#92400e',
+        900: '#78350f',
+      },
+      emerald: {
+        400: '#34d399',
+        500: '#10b981',
+        600: '#059669',
+        700: '#047857',
+        800: '#065f46',
+        900: '#064e3b',
+      },
+      blue: {
+        400: '#60a5fa',
+        500: '#3b82f6',
+        600: '#2563eb',
+        700: '#1d4ed8',
+        800: '#1e40af',
+        900: '#1e3a8a',
+      },
     },
     fontFamily: {
+      // Human Park brand fonts
+      display: [
+        '"Bebas Neue"',
+        '"Oswald"',
+        '"Inter"',
+        '"Helvetica Neue"',
+        'sans-serif',
+      ],
       sans: [
+        '"Inter"',
         '-apple-system',
         'BlinkMacSystemFont',
         '"Segoe UI"',
@@ -184,6 +207,31 @@ module.exports = {
       ease: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
     },
     extend: {
+      // Human Park responsive spacing
+      spacing: {
+        'grid-gutter-desktop': '48px',
+        'grid-gutter-mobile': '20px',
+        'safe-padding-desktop': '80px',
+        'safe-padding-mobile': '24px',
+      },
+      // Human Park border radius
+      borderRadius: {
+        'hp-small': '8px',
+        'hp-medium': '16px',
+        'hp-large': '28px',
+        'hp-xl': '48px',
+      },
+      // Human Park shadows
+      boxShadow: {
+        'hp-soft': '0 8px 30px rgba(0,0,0,0.18)',
+        'hp-cinematic': '0 20px 60px rgba(0,0,0,0.45)',
+      },
+      // Human Park gradients
+      backgroundImage: {
+        'hp-gradient-hero': 'linear-gradient(135deg, #050505 0%, #111111 35%, rgba(247,147,26,0.18) 100%)',
+        'hp-gradient-sunset': 'linear-gradient(180deg, rgba(247,147,26,0.00) 0%, rgba(247,147,26,0.20) 50%, rgba(247,147,26,0.45) 100%)',
+        'hp-gradient-footer': 'linear-gradient(90deg, #050505 0%, #111111 50%, #050505 100%)',
+      },
       animation: {
         'fade-up': 'fade-up 0.6s ease-out forwards',
         'fade-in': 'fade-in 0.3s ease-out forwards',
