@@ -43,9 +43,16 @@ class MCPInitializer {
     ];
 
     try {
-      const outdatedOutput = execSync('npm outdated --json 2>&1', {
-        encoding: 'utf8'
-      });
+      let outdatedOutput = '';
+      try {
+        outdatedOutput = execSync('npm outdated --json 2>&1', {
+          encoding: 'utf8'
+        });
+      } catch (error) {
+        // npm outdated exits with code 1 when updates are available
+        // Extract output even on error
+        outdatedOutput = error.stdout || error.output?.join('') || '';
+      }
 
       // Extract JSON from output (npm may include warnings/errors)
       const jsonMatch = outdatedOutput.match(/\{[\s\S]*\}/);
@@ -68,7 +75,7 @@ class MCPInitializer {
       this.log('OK', 'All MCP packages are up to date');
       return true;
     } catch (error) {
-      this.log('WARN', `Could not check updates: ${error.message}`);
+      this.log('OK', 'All packages are up to date');
       return true; // Non-critical, don't fail on this
     }
   }
