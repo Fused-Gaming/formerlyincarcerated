@@ -10,7 +10,18 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const ROOT_DIR = path.join(__dirname, '../..');
+function findProjectRoot() {
+  let dir = process.cwd();
+  while (dir !== path.dirname(dir)) {
+    if (fs.existsSync(path.join(dir, 'package.json'))) {
+      return dir;
+    }
+    dir = path.dirname(dir);
+  }
+  return process.cwd();
+}
+
+const ROOT_DIR = process.env.PROJECT_ROOT || findProjectRoot();
 const MCP_CONFIG = path.join(ROOT_DIR, '.mcp/config/mcp.config.json');
 const PACKAGE_JSON = path.join(ROOT_DIR, 'package.json');
 

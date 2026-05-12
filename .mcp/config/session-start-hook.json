@@ -8,7 +8,7 @@
     {
       "order": 1,
       "name": "verify-mcp-integrity",
-      "command": "node .mcp/scripts/init-mcp.js",
+      "command": "cd /home/user/formerlyincarcerated && node .mcp/scripts/init-mcp.js",
       "failSilently": false,
       "timeout": 10000,
       "description": "Verify MCP framework integrity and initialize"
