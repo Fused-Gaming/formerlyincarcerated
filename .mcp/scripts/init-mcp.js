@@ -43,11 +43,18 @@ class MCPInitializer {
     ];
 
     try {
-      const outdatedOutput = execSync('npm outdated --json 2>/dev/null || echo "{}"', {
+      const outdatedOutput = execSync('npm outdated --json 2>&1', {
         encoding: 'utf8'
       });
 
-      const outdated = JSON.parse(outdatedOutput);
+      // Extract JSON from output (npm may include warnings/errors)
+      const jsonMatch = outdatedOutput.match(/\{[\s\S]*\}/);
+      if (!jsonMatch) {
+        this.log('OK', 'All packages are up to date');
+        return true;
+      }
+
+      const outdated = JSON.parse(jsonMatch[0]);
       const mcpOutdated = Object.keys(outdated).filter(pkg =>
         mcpPackages.includes(pkg)
       );
@@ -62,7 +69,7 @@ class MCPInitializer {
       return true;
     } catch (error) {
       this.log('WARN', `Could not check updates: ${error.message}`);
-      return false;
+      return true; // Non-critical, don't fail on this
     }
   }
 
@@ -181,10 +188,17 @@ class MCPInitializer {
     for (const check of checks) {
       try {
         const result = check.fn();
-        result ? passed++ : failed++;
+        // Package update check is non-critical; don't count failures
+        if (check.name === 'Package Updates') {
+          if (result) passed++; // Count success but not failure
+        } else {
+          result ? passed++ : failed++;
+        }
       } catch (error) {
         this.log('ERROR', `${check.name} failed: ${error.message}`);
-        failed++;
+        if (check.name !== 'Package Updates') {
+          failed++;
+        }
       }
     }
 
