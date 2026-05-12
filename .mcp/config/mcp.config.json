@@ -1,0 +1,75 @@
+{
+  "name": "Bitcoin Land Bond - MCP Orchestration",
+  "version": "1.0.0",
+  "description": "Model Context Protocol setup for Criminal Asset Recovery Initiative",
+  "cliVersion": "^1.0.11",
+  "coreVersion": "^1.0.11",
+  "skillSyncPulseVersion": "^0.2.0",
+  "initialized": true,
+  "lastUpdated": "2026-05-12T07:44:00Z",
+  "servers": [
+    {
+      "name": "vercel",
+      "enabled": true,
+      "description": "Vercel deployment and project management"
+    },
+    {
+      "name": "github",
+      "enabled": true,
+      "description": "GitHub repository and PR automation"
+    },
+    {
+      "name": "cloudflare",
+      "enabled": true,
+      "description": "Cloudflare edge computing and storage"
+    },
+    {
+      "name": "supabase",
+      "enabled": true,
+      "description": "Supabase database and authentication"
+    }
+  ],
+  "skills": [
+    {
+      "name": "session-start-hook",
+      "enabled": true,
+      "triggerOn": "sessionStart"
+    },
+    {
+      "name": "update-config",
+      "enabled": true,
+      "description": "Configure Claude Code harness and settings"
+    },
+    {
+      "name": "security-review",
+      "enabled": true,
+      "description": "Security analysis of pending changes"
+    },
+    {
+      "name": "simplify",
+      "enabled": true,
+      "description": "Code quality and efficiency review"
+    },
+    {
+      "name": "init",
+      "enabled": true,
+      "description": "Initialize CLAUDE.md documentation"
+    }
+  ],
+  "hooks": {
+    "preSessionStart": [
+      "check-package-updates",
+      "verify-mcp-integrity",
+      "initialize-framework"
+    ],
+    "postSessionStart": [
+      "sync-skills",
+      "load-project-context"
+    ]
+  },
+  "environment": {
+    "NODE_ENV": "development",
+    "MCP_DEBUG": false,
+    "SYNC_INTERVAL": 3600000
+  }
+}
