@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PageLayout from '../components/PageLayout';
-import { Mail, Linkedin, Twitter, MapPin, Phone } from 'lucide-react';
+import { Mail, Linkedin, Twitter } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({

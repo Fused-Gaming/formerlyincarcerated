@@ -1,6 +1,6 @@
 import React from 'react';
 import PageLayout from '../components/PageLayout';
-import { Shield, Lock, Users, Zap, Award, TrendingUp } from 'lucide-react';
+import { Shield, Lock, Users, TrendingUp } from 'lucide-react';
 
 export default function ModelPage() {
   return (
