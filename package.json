@@ -7,7 +7,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "lint": "next lint",
+    "mcp:init": "node .mcp/scripts/init-mcp.js",
+    "mcp:check-updates": "npm outdated @h4shed/mcp-cli @h4shed/mcp-core @h4shed/skill-syncpulse",
+    "mcp:sync": "npm run mcp:init && npm run mcp:check-updates",
+    "postinstall": "npm run mcp:init"
   },
   "dependencies": {
     "@h4shed/mcp-cli": "^1.0.11",
