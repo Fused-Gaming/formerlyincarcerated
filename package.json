@@ -10,8 +10,7 @@
     "export": "next export",
     "mcp:init": "node .mcp/scripts/init-mcp.js",
     "mcp:check-updates": "npm outdated @h4shed/mcp-cli @h4shed/mcp-core @h4shed/skill-syncpulse",
-    "mcp:sync": "npm run mcp:init && npm run mcp:check-updates",
-    "postinstall": "if [ \"$NODE_ENV\" != \"production\" ]; then npm run mcp:init; fi"
+    "mcp:sync": "npm run mcp:init && npm run mcp:check-updates"
   },
   "dependencies": {
     "@react-pdf/renderer": "^4.5.1",
