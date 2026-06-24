@@ -11,9 +11,17 @@
     "mcp:init": "node .mcp/scripts/init-mcp.js",
     "mcp:check-updates": "npm outdated @h4shed/mcp-cli @h4shed/mcp-core @h4shed/skill-syncpulse",
     "mcp:sync": "npm run mcp:init && npm run mcp:check-updates",
-    "postinstall": "npm run mcp:init"
+    "postinstall": "if [ \"$NODE_ENV\" != \"production\" ]; then npm run mcp:init; fi"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.5.1",
+    "lucide-react": "0.408.0",
+    "next": "15.2.6",
+    "pdfjs-dist": "^5.7.284",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
     "@h4shed/mcp-cli": "^1.0.11",
     "@h4shed/mcp-core": "^1.0.11",
     "@h4shed/skill-playwright-test-automation": "^1.0.18",
@@ -26,14 +34,6 @@
     "@h4shed/tool-cssnano": "^1.0.6",
     "@h4shed/tool-inquirer": "^8.0.6",
     "@h4shed/tool-ora": "^7.0.6",
-    "@react-pdf/renderer": "^4.5.1",
-    "lucide-react": "0.408.0",
-    "next": "15.2.6",
-    "pdfjs-dist": "^5.7.284",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
-  },
-  "devDependencies": {
     "autoprefixer": "10.4.20",
     "postcss": "8.4.45",
     "tailwindcss": "3.4.14"
