@@ -45,17 +45,8 @@ test.describe('Design System Consistency', () => {
       test(`${name} page uses HP brand colors, not slate/amber`, async ({ page }) => {
         await page.goto(`http://localhost:3000${url}`);
 
-        // Get the HTML content
         const htmlContent = await page.content();
 
-        // Should NOT use slate or amber colors in the page classes
-        // (except for base tailwind palette in theme)
-        const pageBody = page.locator('body');
-        const classes = await pageBody.evaluate((el) => {
-          return el.className;
-        });
-
-        // Check that hp-orange is used if orange is present
         if (htmlContent.includes('text-amber')) {
           throw new Error(
             `${name} page uses amber colors - should use hp-orange instead`
