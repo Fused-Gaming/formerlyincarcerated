@@ -30,8 +30,8 @@ describe('Contact Form API - E2E Tests', () => {
     };
 
     // Mock environment variables
-    process.env.SMTP_HOST = undefined;
-    process.env.SMTP_USER = undefined;
+    process.env.SMTP_HOST = '';
+    process.env.SMTP_USER = '';
     process.env.ADMIN_EMAIL = 'admin@formerlyincarcerated.org';
   });
 
@@ -60,8 +60,8 @@ describe('Contact Form API - E2E Tests', () => {
       );
 
       // Clean up
-      delete process.env.SMTP_HOST;
-      delete process.env.SMTP_USER;
+      process.env.SMTP_HOST = '';
+      process.env.SMTP_USER = '';
     });
   });
 
@@ -166,6 +166,12 @@ describe('Contact Form API - E2E Tests', () => {
   });
 
   describe('Test 4: Inquiry Type Auto-Detection', () => {
+    beforeEach(() => {
+      // Disable SMTP for this test group to verify data object
+      process.env.SMTP_HOST = '';
+      process.env.SMTP_USER = '';
+    });
+
     it('should detect partnership inquiry from message keywords', async () => {
       mockReq.body = {
         name: 'Partner',
@@ -259,6 +265,12 @@ describe('Contact Form API - E2E Tests', () => {
   });
 
   describe('Test 5: Input Sanitization', () => {
+    beforeEach(() => {
+      // Disable SMTP for this test group to verify data object
+      process.env.SMTP_HOST = '';
+      process.env.SMTP_USER = '';
+    });
+
     it('should trim whitespace from inputs', async () => {
       mockReq.body = {
         name: '  John Doe  ',
@@ -316,6 +328,12 @@ describe('Contact Form API - E2E Tests', () => {
   });
 
   describe('Test 6: IP and User Agent Logging', () => {
+    beforeEach(() => {
+      // Disable SMTP for this test group to verify data object
+      process.env.SMTP_HOST = '';
+      process.env.SMTP_USER = '';
+    });
+
     it('should capture IP address from x-forwarded-for header', async () => {
       mockReq.headers['x-forwarded-for'] = '203.0.113.42';
       mockReq.body = {
@@ -361,10 +379,12 @@ describe('Contact Form API - E2E Tests', () => {
   });
 
   describe('Test 7: Graceful Fallback when SMTP Disabled', () => {
-    it('should return 202 when SMTP not configured', async () => {
-      process.env.SMTP_HOST = undefined;
-      process.env.SMTP_USER = undefined;
+    beforeEach(() => {
+      delete process.env.SMTP_HOST;
+      delete process.env.SMTP_USER;
+    });
 
+    it('should return 202 when SMTP not configured', async () => {
       mockReq.body = {
         name: 'John Doe',
         email: 'john@example.com',
@@ -381,9 +401,6 @@ describe('Contact Form API - E2E Tests', () => {
     });
 
     it('should log data but not fail when SMTP not configured', async () => {
-      process.env.SMTP_HOST = undefined;
-      process.env.SMTP_USER = undefined;
-
       const consoleSpy = jest.spyOn(console, 'log').mockImplementation();
 
       mockReq.body = {
@@ -426,6 +443,9 @@ describe('Contact Form API - E2E Tests', () => {
     });
 
     it('should include timestamp in response data when SMTP disabled', async () => {
+      delete process.env.SMTP_HOST;
+      delete process.env.SMTP_USER;
+
       mockReq.body = {
         name: 'John Doe',
         email: 'john@example.com',
@@ -477,6 +497,9 @@ describe('Contact Form API - E2E Tests', () => {
 
   describe('Test 10: Error Handling', () => {
     it('should handle non-string inputs by coercing to strings', async () => {
+      delete process.env.SMTP_HOST;
+      delete process.env.SMTP_USER;
+
       mockReq.body = {
         name: 12345,
         email: 'john@example.com',
