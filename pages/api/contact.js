@@ -27,18 +27,14 @@ export default async function handler(req, res) {
   try {
     const { name, email, organization, message } = req.body;
 
-    // Validation
+    // Validation - check existence
     if (!name || !email || !message) {
       return res.status(400).json({
         error: 'Missing required fields: name, email, and message',
       });
     }
 
-    if (!validateEmail(email)) {
-      return res.status(400).json({ error: 'Invalid email address' });
-    }
-
-    // Sanitize inputs
+    // Sanitize inputs first
     const sanitizedData = {
       name: sanitizeInput(name),
       email: email.toLowerCase().trim(),
@@ -49,6 +45,11 @@ export default async function handler(req, res) {
       userAgent: req.headers['user-agent'] || '',
       timestamp: new Date().toISOString(),
     };
+
+    // Validate email after sanitization
+    if (!validateEmail(sanitizedData.email)) {
+      return res.status(400).json({ error: 'Invalid email address' });
+    }
 
     // Check SMTP configuration
     if (!process.env.SMTP_HOST || !process.env.SMTP_USER) {
