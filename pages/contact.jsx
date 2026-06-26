@@ -9,16 +9,45 @@ export default function ContactPage() {
     organization: '',
     message: '',
   });
+  const [status, setStatus] = useState('idle');
+  const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission - could integrate with email service
-    window.location.href = `mailto:hello@formerlyincarcerated.org?subject=Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}`;
+    setStatus('loading');
+    setMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setStatus('success');
+      setMessage('✅ Thank you! We received your message and will be in touch soon.');
+      setFormData({ name: '', email: '', organization: '', message: '' });
+
+      setTimeout(() => {
+        setStatus('idle');
+        setMessage('');
+      }, 5000);
+    } catch (error) {
+      setStatus('error');
+      setMessage(`❌ ${error.message}`);
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   return (
@@ -129,10 +158,29 @@ export default function ContactPage() {
 
             <button
               type="submit"
-              className="w-full bg-hp-orange text-hp-black px-8 py-4 font-bold rounded-lg hover:bg-hp-orange-glow transition-all duration-200"
+              disabled={status === 'loading'}
+              className={`w-full px-8 py-4 font-bold rounded-lg transition-all duration-200 ${
+                status === 'loading'
+                  ? 'bg-hp-gray-medium text-hp-black cursor-not-allowed'
+                  : 'bg-hp-orange text-hp-black hover:bg-hp-orange-glow'
+              }`}
             >
-              Send Message
+              {status === 'loading' ? 'Sending...' : 'Send Message'}
             </button>
+
+            {message && (
+              <div
+                className={`p-4 rounded-lg text-center font-semibold ${
+                  status === 'success'
+                    ? 'bg-green-100 text-green-800'
+                    : status === 'error'
+                    ? 'bg-red-100 text-red-800'
+                    : 'bg-blue-100 text-blue-800'
+                }`}
+              >
+                {message}
+              </div>
+            )}
           </form>
         </div>
       </section>
